@@ -7,7 +7,7 @@ public class StomachTrigger : MonoBehaviour
     {
         if (collision.TryGetComponent(out FoodPlate food))
         {
-            StomachLogic.OnFoodConsume?.Invoke(food.foodID);
+            EventBoi.OnFoodConsume?.Invoke(food.foodID);
             Destroy(collision.gameObject);
         }
     }

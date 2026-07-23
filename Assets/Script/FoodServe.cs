@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 
 [RequireComponent(typeof(Animator))]
 public class FoodServe : MonoBehaviour
 {
+    [SerializeField] private Slider gauge;
     public FoodList foodList;
     public int nextFoodID;
     public float CD;
@@ -18,6 +20,7 @@ public class FoodServe : MonoBehaviour
 
     void Update()
     {
+        gauge.value = CD / maxCD;
         CD -= Time.deltaTime;
         if (CD <= 0)
         {

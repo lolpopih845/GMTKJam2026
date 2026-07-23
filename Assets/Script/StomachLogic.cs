@@ -7,18 +7,17 @@ public class StomachLogic : MonoBehaviour
     [SerializeField] private FoodList foodList;
 
     [SerializeField] private Vector2 chymeDropPos;
-    public static Action<int> OnFoodConsume;
     private List<Chyme> FoodInStomachs = new();
     private bool isPoisoning = false;
 
     void OnEnable()
     {
-        OnFoodConsume += ConsumingFood;
+        EventBoi.OnFoodConsume += ConsumingFood;
     }
 
     void OnDisable()
     {
-        OnFoodConsume -= ConsumingFood;
+        EventBoi.OnFoodConsume -= ConsumingFood;
     }
 
     void Update()

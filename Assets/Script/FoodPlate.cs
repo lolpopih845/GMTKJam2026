@@ -22,6 +22,7 @@ public class FoodPlate : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         cam = Camera.main;
+        Invoke(nameof(EnableHitbox), 1.5f);
     }
 
     private void Update()
@@ -79,5 +80,10 @@ public class FoodPlate : MonoBehaviour
 
         rb.gravityScale = 1;
         rb.linearVelocity = throwVelocity * 0.35f;
+    }
+
+    private void EnableHitbox()
+    {
+        GetComponent<Collider2D>().isTrigger = false;
     }
 }
