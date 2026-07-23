@@ -52,11 +52,9 @@ public class GameState : MonoBehaviour
     {
         if (timer < 0) timer = 0;
 
-        int hours = (int)(timer / 3600);
         int minutes = (int)(timer % 3600 / 60);
         int seconds = (int)(timer % 60);
-        int milliseconds = (int)(timer * 1000 % 1000);
 
-        timer_text.text = string.Format("{0:00}:{1:00}:{2:00}.{3:03}", hours, minutes, seconds, milliseconds);
+        timer_text.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 }

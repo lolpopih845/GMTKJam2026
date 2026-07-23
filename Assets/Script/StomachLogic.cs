@@ -14,6 +14,7 @@ public class StomachLogic : MonoBehaviour
     [SerializeField] private Vector2 chymeDropPos;
     private List<Chyme> FoodInStomachs = new();
     private bool isPoisoning = false;
+    private Tuple<int, int> poisoningPair;
 
     void OnEnable()
     {
