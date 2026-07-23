@@ -1,11 +1,16 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StomachLogic : MonoBehaviour
 {
-    [SerializeField] private FoodList foodList;
+    [Header("UIRef")]
+    [SerializeField] private GameObject foodCDIcon;
+    [SerializeField] private GameObject iconBar;
 
+    [Header("Field")]
+    [SerializeField] private FoodList foodList;
     [SerializeField] private Vector2 chymeDropPos;
     private List<Chyme> FoodInStomachs = new();
     private bool isPoisoning = false;
@@ -38,7 +43,9 @@ public class StomachLogic : MonoBehaviour
     private void ConsumingFood(int ID)
     {
         Food food = foodList.foods[ID];
-        FoodInStomachs.Add(Instantiate(food.chyme, chymeDropPos, Quaternion.identity).GetComponent<Chyme>());
+        GameObject UIObject = Instantiate(foodCDIcon, iconBar.transform);
+        UIObject.GetComponentInChildren<Image>().sprite = food.foodSprite;
+        FoodInStomachs.Add(Instantiate(food.chyme, chymeDropPos, Quaternion.identity).GetComponent<Chyme>().InitWithUI(UIObject));
 
         // UI Display
 

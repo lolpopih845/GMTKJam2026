@@ -7,7 +7,7 @@ public class GameState : MonoBehaviour
     [SerializeField] private TMP_Text timer_text;
     [SerializeField] private TMP_Text food_text;
 
-    [Header("Feild")]
+    [Header("Field")]
     public static GameState I;
     [SerializeField] private float maxTimer = 300;
     public float timer;

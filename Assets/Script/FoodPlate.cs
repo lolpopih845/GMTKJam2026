@@ -22,7 +22,7 @@ public class FoodPlate : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         cam = Camera.main;
-        Invoke(nameof(EnableHitbox), 1.5f);
+        Invoke(nameof(EnableHitbox), 0.75f);
     }
 
     private void Update()
